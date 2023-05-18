@@ -3,12 +3,13 @@ using UnityEngine.InputSystem;
 
 public class InputSystem : MonoBehaviour
 {
-	[SerializeField] private PlayerMovement _playerMovement;
+	[SerializeField] private PlayerFacade _player;
 
 	private PlayerInputActions _inputActions;
 
-	private void Awake()
+	public void Initialize(PlayerFacade player)
 	{
+		_player = player;
 		_inputActions = new PlayerInputActions();
 	}
 
@@ -18,10 +19,10 @@ public class InputSystem : MonoBehaviour
 	}
 
 	private void ChangePlayerDirection(InputAction.CallbackContext context)
-		=> _playerMovement.ChangeDirection(context.ReadValue<Vector2>());
+		=> _player.ChangeDirection(context.ReadValue<Vector2>());
 
 	private void StopPlayer(InputAction.CallbackContext context)
-		=> _playerMovement.ChangeDirection(Vector2.zero);
+		=> _player.ChangeDirection(Vector2.zero);
 
 	private void OnEnable()
 	{

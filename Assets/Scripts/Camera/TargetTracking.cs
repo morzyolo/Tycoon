@@ -1,17 +1,30 @@
 using UnityEngine;
 
-public class TargetTracking : MonoBehaviour
+public class TargetTracking : MonoBehaviour, IFixedUpdateListener
 {
-	[SerializeField] private Transform _target;
-	[SerializeField] private float _smoothTime;
+	[SerializeField] private Vector2 _maxTargetOffset;
 	[SerializeField] private Vector3 _offset;
+	[SerializeField] private float _smoothness;
 
-	private Vector3 _velocity;
+	private Transform _target;
 
-	private void FixedUpdate()
+	public void Initialize(Transform target, Updater updater)
 	{
-		Vector3 targetPosition = new Vector3(_target.position.x, _target.position.y, _target.position.z) + _offset;
-		Debug.Log(targetPosition + "   " + _target.position);
-		transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, _smoothTime);
+		_target = target;
+		transform.position = target.position + _offset;
+		updater.AddListener(this);
 	}
+
+	public void FixedTick(float fixedDeltaTime)
+	{
+		Vector3 targetPosition = _target.position + _offset;
+
+		if (Mathf.Abs(targetPosition.x - transform.position.x) > _maxTargetOffset.x ||
+			Mathf.Abs(targetPosition.z - transform.position.z) > _maxTargetOffset.y)
+		{
+			transform.position = Vector3.Lerp(transform.position, targetPosition, fixedDeltaTime * _smoothness);
+		}
+	}
+
+	public void SetTarget(Transform target) => _target = target;
 }
