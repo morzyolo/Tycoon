@@ -4,9 +4,12 @@ public class PlayerFacade : MonoBehaviour
 {
 	[SerializeField] private PlayerMovement _movement;
 
-	public void Initialize(PlayerConfig config, Updater updater)
+	private CurrencyWallet _currencyStorage;
+
+	public void Initialize(Updater updater, PlayerConfig config, CurrencyWallet currencyStorage)
 	{
 		_movement.Initialize(config, updater, transform);
+		_currencyStorage = currencyStorage;
 	}
 
 	public void ChangeDirection(Vector2 direction)

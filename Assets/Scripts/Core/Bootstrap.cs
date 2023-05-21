@@ -11,7 +11,11 @@ public class Bootstrap : MonoBehaviour
 
 	private void Awake()
 	{
-		var playerFactory = new PlayerFactory(_playerConfig, _updater);
+		var dataHandler = new FileDataHandler();
+		var currenceStorageFactory = new CurrencyWalletFactory(dataHandler);
+		var currencyWallet = currenceStorageFactory.Create();
+
+		var playerFactory = new PlayerFactory(_updater, _playerConfig, currencyWallet);
 		var player = playerFactory.Create();
 
 		_camera.Initialize(player.transform, _updater);
