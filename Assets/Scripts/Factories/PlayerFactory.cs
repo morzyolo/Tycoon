@@ -6,11 +6,11 @@ public class PlayerFactory
 	private readonly PlayerConfig _playerConfig;
 	private readonly CurrencyWallet _currencyWallet;
 
-	public PlayerFactory(Updater updater, PlayerConfig config, CurrencyWallet currencyStorage)
+	public PlayerFactory(Updater updater, PlayerConfig config, CurrencyWallet currencyWallet)
 	{
 		_updater = updater;
 		_playerConfig = config;
-		_currencyWallet = currencyStorage;
+		_currencyWallet = currencyWallet;
 	}
 
 	public PlayerFacade Create()

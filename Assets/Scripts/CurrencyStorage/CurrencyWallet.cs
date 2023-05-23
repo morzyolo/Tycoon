@@ -8,4 +8,14 @@ public class CurrencyWallet
 	{
 		_currencies = currencies;
 	}
+
+	public bool TryToSpendCurrencyTypeValue(KeyValuePair<CurrencyType, int> typeValue)
+	{
+		if (_currencies.ContainsKey(typeValue.Key) && _currencies[typeValue.Key] >= typeValue.Value)
+		{
+			_currencies[typeValue.Key] -= typeValue.Value;
+			return true;
+		}
+		return false;
+	}
 }

@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class PlayerFacade : MonoBehaviour
 {
+	[SerializeField] private PlayerInteraction _inrteraction;
 	[SerializeField] private PlayerMovement _movement;
 
-	private CurrencyWallet _currencyStorage;
+	private CurrencyWallet _currencyWallet;
 
-	public void Initialize(Updater updater, PlayerConfig config, CurrencyWallet currencyStorage)
+	public void Initialize(Updater updater, PlayerConfig config, CurrencyWallet currencyWallet)
 	{
+		_inrteraction.Initialize(_currencyWallet);
 		_movement.Initialize(config, updater, transform);
-		_currencyStorage = currencyStorage;
+		_currencyWallet = currencyWallet;
 	}
 
 	public void ChangeDirection(Vector2 direction)
