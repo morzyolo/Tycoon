@@ -20,7 +20,6 @@ public class FileDataHandler
 			fileStream.Read(buffer, 0, buffer.Length);
 			json = Encoding.Default.GetString(buffer);
 		}
-
 		WalletData walletData = JsonUtility.FromJson<WalletData>(json);
 
 		return walletData ?? new WalletData(new Dictionary<CurrencyType, int>() { { CurrencyType.Particle, 0 } });

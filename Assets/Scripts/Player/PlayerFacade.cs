@@ -9,9 +9,9 @@ public class PlayerFacade : MonoBehaviour
 
 	public void Initialize(Updater updater, PlayerConfig config, CurrencyWallet currencyWallet)
 	{
-		_inrteraction.Initialize(_currencyWallet);
-		_movement.Initialize(config, updater, transform);
 		_currencyWallet = currencyWallet;
+		_inrteraction.Initialize(_currencyWallet);
+		_movement.Initialize(config, updater, this.transform);
 	}
 
 	public void ChangeDirection(Vector2 direction)
