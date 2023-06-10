@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4777213742201717304}
   - component: {fileID: 4777213742201717305}
   m_Layer: 0
-  m_Name: BuyableObject
+  m_Name: BuyableTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

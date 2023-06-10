@@ -5,12 +5,9 @@ public class PlayerFacade : MonoBehaviour
 	[SerializeField] private PlayerInteraction _inrteraction;
 	[SerializeField] private PlayerMovement _movement;
 
-	private CurrencyWallet _currencyWallet;
-
 	public void Initialize(Updater updater, PlayerConfig config, CurrencyWallet currencyWallet)
 	{
-		_currencyWallet = currencyWallet;
-		_inrteraction.Initialize(_currencyWallet);
+		_inrteraction.Initialize(currencyWallet);
 		_movement.Initialize(config, updater, this.transform);
 	}
 

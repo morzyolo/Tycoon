@@ -18,4 +18,9 @@ public class CurrencyWallet
 		}
 		return false;
 	}
+
+	public void AddType(CurrencyType type)
+	{
+		_currencies.Add(type, 0);
+	}
 }

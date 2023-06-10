@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class CurrencyWalletFactory
 {
 	private readonly FileDataHandler _dataHandler;
@@ -9,8 +11,10 @@ public class CurrencyWalletFactory
 
 	public CurrencyWallet Create()
 	{
-		WalletData walletData = _dataHandler.LoadWalletData();
+		WalletDataWrapper walletWrapper = _dataHandler.LoadWalletData();
 
-		return new CurrencyWallet(walletData.Currencies);
+		return walletWrapper != null ?
+			new CurrencyWallet(walletWrapper.Currencies) :
+			new CurrencyWallet(new Dictionary<CurrencyType, int>() { { CurrencyType.Particle, 0 } });
 	}
 }

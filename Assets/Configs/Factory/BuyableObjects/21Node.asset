@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34864217469cd064fb1744af6bbbea27, type: 3}
-  m_Name: StartFactoryNode
+  m_Name: 21Node
   m_EditorClassIdentifier: 
   _cost: 0
   _costType: 0
-  _spawnPoint: {x: 0, y: 0, z: 7}
-  _triggerPoint: {x: 0, y: 0, z: 5}
+  _spawnPoint: {x: 4, y: 0, z: 7}
+  _triggerPoint: {x: 4, y: 0, z: 5}
   _spawnedObject: {fileID: 4517445285721425129, guid: 24a6c9b13e165ea4eafb31f391da6f16, type: 3}
-  _nextBuyableNodes:
-  - {fileID: 11400000, guid: bf685fadfa4057249a33d7875229f1b3, type: 2}
+  _nextBuyableNodes: []
