@@ -9,7 +9,7 @@ public class FactoryProgress : MonoBehaviour
 	[SerializeField] private BuyableNode _startNode;
 	[SerializeField] private BuyableTrigger _buyableTriggerPrefab;
 
-	[SerializeField] private List<BuyableNode> _buyableNodes;
+	private List<BuyableNode> _buyableNodes;
 	private Stack<BuyableTrigger> _triggerPool;
 
 	private FileDataHandler _fileHandler;
@@ -17,7 +17,6 @@ public class FactoryProgress : MonoBehaviour
 	public void Initialize(FileDataHandler fileHandler)
 	{
 		_fileHandler = fileHandler;
-		_fileHandler.SaveBuyableNodesData(_buyableNodes);
 		_buyableNodes = _fileHandler.LoadBuyableNodesData();
 		InitializeNodes();
 	}

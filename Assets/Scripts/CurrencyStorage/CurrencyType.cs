@@ -5,5 +5,7 @@ public enum CurrencyType
 	Shard = 2,
 	Chip = 3,
 	Fragment = 4,
-	Cluster = 5
+	Cluster = 5,
+	Coin = 6,
+	Banknote = 7
 }

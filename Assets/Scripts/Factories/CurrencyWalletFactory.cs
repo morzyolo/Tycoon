@@ -15,6 +15,6 @@ public class CurrencyWalletFactory
 
 		return walletWrapper != null ?
 			new CurrencyWallet(walletWrapper.Currencies) :
-			new CurrencyWallet(new Dictionary<CurrencyType, int>() { { CurrencyType.Particle, 0 } });
+			new CurrencyWallet(new Dictionary<CurrencyType, int>() { { CurrencyType.Coin, 0 } });
 	}
 }
