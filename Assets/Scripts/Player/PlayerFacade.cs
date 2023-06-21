@@ -8,7 +8,7 @@ public class PlayerFacade : MonoBehaviour
 	public void Initialize(Updater updater, PlayerConfig config, CurrencyWallet currencyWallet)
 	{
 		_inrteraction.Initialize(currencyWallet);
-		_movement.Initialize(config, updater, this.transform);
+		_movement.Initialize(config, updater);
 	}
 
 	public void ChangeDirection(Vector2 direction)
