@@ -16,24 +16,32 @@ public class FileDataHandler
 			Directory.CreateDirectory(_dataPath + Path.AltDirectorySeparatorChar + "Data");
 	}
 
-	public void SaveWalletData(Dictionary<CurrencyType, int> currencies) =>
+	public void SaveWallet(Dictionary<CurrencyType, int> currencies) =>
 		SaveJsonData(_walletDataPath,
 			JsonConvert.SerializeObject(new WalletDataWrapper(currencies), Formatting.Indented));
 
-	public WalletDataWrapper LoadWalletData()
+	public CurrencyWallet LoadCurrencyWallet()
 	{
 		string json = LoadJsonData(_walletDataPath);
-		return JsonConvert.DeserializeObject<WalletDataWrapper>(json);
+		var walletWrapper = JsonConvert.DeserializeObject<WalletDataWrapper>(json);
+
+		return walletWrapper != null ?
+			new CurrencyWallet(walletWrapper.Currencies) :
+			new CurrencyWallet(new Dictionary<CurrencyType, int>() { { CurrencyType.Coin, 0 } });
 	}
 
-	public void SaveBuyableNodesData(List<BuyableNode> nodes) =>
+	public void SaveBuyableNodes(List<BuyableNode> nodes) =>
 		SaveJsonData(_boughtNodesPath,
 			JsonUtility.ToJson(new BuyableNodesWrapper(nodes)));
 
-	public List<BuyableNode> LoadBuyableNodesData()
+	public List<BuyableNode> LoadBuyableNodes()
 	{
 		string json = LoadJsonData(_boughtNodesPath);
-		return JsonUtility.FromJson<BuyableNodesWrapper>(json)?.BuyableNodes;
+		var nodesWrapper = JsonUtility.FromJson<BuyableNodesWrapper>(json);
+
+		return nodesWrapper != null ?
+			nodesWrapper.BuyableNodes :
+			new List<BuyableNode>();
 	}
 
 	private string LoadJsonData(string path)

@@ -11,10 +11,6 @@ public class CurrencyWalletFactory
 
 	public CurrencyWallet Create()
 	{
-		WalletDataWrapper walletWrapper = _dataHandler.LoadWalletData();
-
-		return walletWrapper != null ?
-			new CurrencyWallet(walletWrapper.Currencies) :
-			new CurrencyWallet(new Dictionary<CurrencyType, int>() { { CurrencyType.Coin, 0 } });
+		return _dataHandler.LoadCurrencyWallet();
 	}
 }

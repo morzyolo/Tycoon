@@ -17,7 +17,7 @@ public class FactoryProgress : MonoBehaviour
 	public void Initialize(FileDataHandler fileHandler)
 	{
 		_fileHandler = fileHandler;
-		_buyableNodes = _fileHandler.LoadBuyableNodesData();
+		_buyableNodes = _fileHandler.LoadBuyableNodes();
 		InitializeNodes();
 	}
 
@@ -25,9 +25,8 @@ public class FactoryProgress : MonoBehaviour
 	{
 		_triggerPool = new Stack<BuyableTrigger>();
 
-		if (_buyableNodes == null || _buyableNodes.Count == 0)
+		if (_buyableNodes.Count == 0)
 		{
-			_buyableNodes = new List<BuyableNode>();
 			SpawnTrigger(_startNode);
 		}
 		else
