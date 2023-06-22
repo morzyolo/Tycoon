@@ -4,10 +4,12 @@ public class PlayerFacade : MonoBehaviour
 {
 	[SerializeField] private PlayerInteraction _inrteraction;
 	[SerializeField] private PlayerMovement _movement;
+	[SerializeField] private Tray _tray;
 
 	public void Initialize(Updater updater, PlayerConfig config, CurrencyWallet currencyWallet)
 	{
-		_inrteraction.Initialize(currencyWallet);
+		_tray.Initialize();
+		_inrteraction.Initialize(currencyWallet, _tray);
 		_movement.Initialize(config, updater);
 	}
 

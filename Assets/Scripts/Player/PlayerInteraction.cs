@@ -3,10 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class PlayerInteraction : MonoBehaviour
 {
+	private Tray _tray;
 	private CurrencyWallet _currencyWallet;
 
-	public void Initialize(CurrencyWallet wallet)
+	public void Initialize(CurrencyWallet wallet, Tray tray)
 	{
+		_tray = tray;
 		_currencyWallet = wallet;
 	}
 
@@ -16,6 +18,11 @@ public class PlayerInteraction : MonoBehaviour
 		{
 			if (_currencyWallet.TryToSpendCurrencyTypeValue(buyable.GetCost()))
 				buyable.Buy();
+		}
+
+		if (other.TryGetComponent<CarriableItem>(out var carriableItem))
+		{
+			_tray.TryToCarryItem(carriableItem);
 		}
 	}
 }
