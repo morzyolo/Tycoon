@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class Tray : MonoBehaviour
 {
+	public bool HasFreeSpace => _newItemId < _itemsCount;
+
 	[Header("Count")]
 	[SerializeField] private int _itemsCount;
 	[SerializeField] private Vector2Int _dimension;
 
 	[Header("Offsets")]
-	[SerializeField] private Vector3 _firstElemetOffset;
+	[SerializeField] private Vector3 _firstElementOffset;
 	[SerializeField] private Vector3 _offsetBetweenItems;
 
 	private int _newItemId;
@@ -32,12 +34,12 @@ public class Tray : MonoBehaviour
 		return true;
 	}
 
-	public Vector3 CalculateItemPosition()
+	private Vector3 CalculateItemPosition()
 	{
-		float y = _firstElemetOffset.y + _newItemId / (_dimension.x * _dimension.y) * _offsetBetweenItems.y;
+		float y = _firstElementOffset.y + _newItemId / (_dimension.x * _dimension.y) * _offsetBetweenItems.y;
 		int _idInXZ = _newItemId % (_dimension.x * _dimension.y);
-		float x = _firstElemetOffset.x + _idInXZ / _dimension.x * _offsetBetweenItems.x;
-		float z = _firstElemetOffset.z + _idInXZ % _dimension.y  * _offsetBetweenItems.z;
+		float x = _firstElementOffset.x + _idInXZ / _dimension.x * _offsetBetweenItems.x;
+		float z = _firstElementOffset.z + _idInXZ % _dimension.y  * _offsetBetweenItems.z;
 
 		return new Vector3(x, y, z);
 	}

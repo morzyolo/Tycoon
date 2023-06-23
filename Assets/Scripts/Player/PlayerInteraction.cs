@@ -24,5 +24,13 @@ public class PlayerInteraction : MonoBehaviour
 		{
 			_tray.TryToCarryItem(carriableItem);
 		}
+		
+		if (other.TryGetComponent<IDispenser>(out var dispenser))
+		{
+			if (_tray.HasFreeSpace && dispenser.TryDispense(out var item))
+			{
+				_tray.TryToCarryItem(item);
+			}
+		}
 	}
 }
