@@ -3,13 +3,15 @@ using UnityEngine;
 public class PlayerFacade : MonoBehaviour
 {
 	[SerializeField] private PlayerInteraction _inrteraction;
+	[SerializeField] private PlayerContainer _container;
 	[SerializeField] private PlayerMovement _movement;
 	[SerializeField] private Tray _tray;
 
 	public void Initialize(Updater updater, PlayerConfig config, CurrencyWallet currencyWallet)
 	{
 		_tray.Initialize();
-		_inrteraction.Initialize(currencyWallet, _tray);
+		_container.Initialize(_tray, currencyWallet);
+		_inrteraction.Initialize(_container);
 		_movement.Initialize(config, updater);
 	}
 

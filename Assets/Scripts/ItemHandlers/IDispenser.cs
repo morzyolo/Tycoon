@@ -1,5 +1,4 @@
 public interface IDispenser
 {
-	public bool TryDispense(out CarriableItem carriableItem);
-	public bool TryRefill(CarriableItem carriableItem);
+	public bool TryDispense(out Item item, IStorage storage);
 }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class CurrencyWallet
 {
-	private Dictionary<CurrencyType, int> _currencies;
+	private readonly Dictionary<CurrencyType, int> _currencies;
 
 	public CurrencyWallet(Dictionary<CurrencyType, int> currencies)
 	{
@@ -22,5 +22,13 @@ public class CurrencyWallet
 	public void AddType(CurrencyType type)
 	{
 		_currencies.Add(type, 0);
+	}
+
+	public void AddCurrency(KeyValuePair<CurrencyType, int> typeValue)
+	{
+		if (_currencies.ContainsKey(typeValue.Key))
+			_currencies[typeValue.Key] += typeValue.Value;
+		else
+			_currencies.Add(typeValue.Key, typeValue.Value);
 	}
 }

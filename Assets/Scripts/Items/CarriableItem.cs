@@ -1,5 +1,2 @@
-﻿using UnityEngine;
-
-[RequireComponent (typeof(Collider))]
-public abstract class CarriableItem : MonoBehaviour
+﻿public abstract class CarriableItem : Item
 { }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 21Node
   m_EditorClassIdentifier: 
   _cost: 0
-  _costType: 0
+  _costType: 6
   _spawnPoint: {x: 4, y: 0, z: 7}
   _triggerPoint: {x: 4, y: 0, z: 5}
   _spawnedObject: {fileID: 4517445285721425129, guid: 24a6c9b13e165ea4eafb31f391da6f16, type: 3}

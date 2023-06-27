@@ -3,35 +3,26 @@ using UnityEngine;
 
 public class SandDispenser : MonoBehaviour, IDispenser
 {
-	[SerializeField] private int _itemsCount;
-	[SerializeField] private Transform _container;
-
-	private Stack<CarriableItem> _storedItems;
+	private List<Item> _storedItems;
 
 	private void Start()
 	{
-		_storedItems = new Stack<CarriableItem>();
+	 	_storedItems = new List<Item>();
 	}
 
-	public bool TryDispense(out CarriableItem carriableItem)
+	public bool TryDispense(out Item item, IStorage storage)
 	{
-		_storedItems.TryPop(out carriableItem);
-		return carriableItem != null;
-	}
+		foreach (Item i in _storedItems)
+		{
+			if (storage.TryStore(i))
+			{
+				item = i;
+				_storedItems.Remove(i);
+				return true;
+			}
+		}
 
-	public bool TryRefill(CarriableItem carriableItem)
-	{
-		if (_itemsCount == _storedItems.Count) return false;
-
-		carriableItem.transform.parent = _container;
-		carriableItem.transform.localPosition = CalculateItemPosition();
-		carriableItem.transform.rotation = Quaternion.identity;
-		_storedItems.Push(carriableItem);
-		return true;
-	}
-
-	private Vector3 CalculateItemPosition()
-	{
-		return new Vector3(0f, _storedItems.Count * 0.4f, 0f);
+		item = null;
+		return false;
 	}
 }
