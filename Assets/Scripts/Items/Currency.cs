@@ -1,6 +1,12 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
-public abstract class Currency : Item
+public class Currency : Item
 {
-	public abstract KeyValuePair<CurrencyType, int> GetTypeValue();
+	[SerializeField] private CurrencyType _currencyType;
+
+	public KeyValuePair<CurrencyType, int> GetTypeValue()
+	{
+		return new KeyValuePair<CurrencyType, int>(_currencyType, 1);
+	}
 }
