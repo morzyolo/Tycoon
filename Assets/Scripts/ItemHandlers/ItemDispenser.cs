@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SandDispenser : MonoBehaviour, IDispenser
+public class ItemDispenser : MonoBehaviour, IDispenser
 {
+	[SerializeField] private int _itemsCount;
+
 	private List<Item> _storedItems;
 
 	private void Start()
@@ -24,5 +26,14 @@ public class SandDispenser : MonoBehaviour, IDispenser
 
 		item = null;
 		return false;
+	}
+
+	public bool HasFreeSpace => _storedItems.Count < _itemsCount;
+
+	public void Store(Item item)
+	{
+		item.transform.parent = this.transform;
+		item.transform.localPosition = new Vector3(0, 0.5f + _storedItems.Count * 0.2f, 0);
+		_storedItems.Add(item);
 	}
 }

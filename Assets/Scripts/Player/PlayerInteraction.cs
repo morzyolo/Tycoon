@@ -23,5 +23,8 @@ public class PlayerInteraction : MonoBehaviour
 
 		if (other.TryGetComponent<IStorage>(out var storage))
 			_interactionMediator.InteractDispenserWithStorage(_container, storage);
+
+		if (other.TryGetComponent<IInteractive>(out var interactive))
+			interactive.Interact();
 	}
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1061385145466518055}
   - component: {fileID: 1777452548}
   m_Layer: 0
-  m_Name: SandDispenserExample
+  m_Name: ItemDispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,9 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 420ac2260975fc641879d6c89f451c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxItemsCount: 10
-  _container: {fileID: 1061385147027801326}
-  _testItem: {fileID: 7254925692540780425, guid: 53b907949d8ee134e9276a2c3c0b302f, type: 3}
+  _itemsCount: 8
 --- !u!65 &1061385145466518055
 BoxCollider:
   m_ObjectHideFlags: 0

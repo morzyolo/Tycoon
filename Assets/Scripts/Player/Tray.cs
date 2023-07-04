@@ -43,13 +43,13 @@ public class Tray : MonoBehaviour, IDispenser
 	{
 		item.transform.parent = transform;
 		item.transform.localRotation = Quaternion.identity;
-		item.transform.localPosition = CalculateItemPosition();
+		item.transform.localPosition = CalculateItemPosition(_carriableItems.Count - 1);
 	}
 
-	private Vector3 CalculateItemPosition()
+	private Vector3 CalculateItemPosition(int itemId)
 	{
-		float y = _firstElementOffset.y + _carriableItems.Count / (_dimension.x * _dimension.y) * _offsetBetweenItems.y;
-		int _idInXZ = _carriableItems.Count % (_dimension.x * _dimension.y);
+		float y = _firstElementOffset.y + itemId / (_dimension.x * _dimension.y) * _offsetBetweenItems.y;
+		int _idInXZ = itemId % (_dimension.x * _dimension.y);
 		float x = _firstElementOffset.x + _idInXZ / _dimension.x * _offsetBetweenItems.x;
 		float z = _firstElementOffset.z + _idInXZ % _dimension.y  * _offsetBetweenItems.z;
 
