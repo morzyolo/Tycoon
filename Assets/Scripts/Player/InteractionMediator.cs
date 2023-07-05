@@ -6,11 +6,11 @@ public class InteractionMediator
 	{
 		if (!storage.HasFreeSpace) return;
 
-		if (dispenser.TryDispense(out var item, storage))
-			PlaceItem(dispenser, storage, item);
+		if (dispenser.TryDispensingInStorage(out var item, storage))
+			MoveItem(dispenser, storage, item);
 	}
 
-	private void PlaceItem(IDispenser from, IStorage to, Item item)
+	private void MoveItem(IDispenser from, IStorage to, Item item)
 	{
 		// movement from dispenser to storage
 

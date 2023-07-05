@@ -25,8 +25,8 @@ public class PlayerContainer : MonoBehaviour, IStorage, IDispenser
 		return true;
 	}
 
-	public bool TryDispense(out Item item, IStorage storage)
-		=> _tray.TryDispense(out item, storage);
+	public bool TryDispensingInStorage(out Item item, IStorage storage)
+		=> _tray.TryDispensingInStorage(out item, storage);
 
 	public void PlaceItem(Item item)
 	{

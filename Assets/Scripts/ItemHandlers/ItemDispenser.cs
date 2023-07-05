@@ -12,7 +12,7 @@ public class ItemDispenser : MonoBehaviour, IDispenser
 	 	_storedItems = new List<Item>();
 	}
 
-	public bool TryDispense(out Item item, IStorage storage)
+	public bool TryDispensingInStorage(out Item item, IStorage storage)
 	{
 		foreach (Item i in _storedItems)
 		{

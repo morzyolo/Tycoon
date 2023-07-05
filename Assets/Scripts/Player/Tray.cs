@@ -23,7 +23,7 @@ public class Tray : MonoBehaviour, IDispenser
 	public void Store(CarriableItem item)
 		=> _carriableItems.Add(item);
 
-	public bool TryDispense(out Item item, IStorage storage)
+	public bool TryDispensingInStorage(out Item item, IStorage storage)
 	{
 		foreach (var i in _carriableItems)
 		{

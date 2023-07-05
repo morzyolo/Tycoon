@@ -1,4 +1,4 @@
 public interface IDispenser
 {
-	public bool TryDispense(out Item item, IStorage storage);
+	public bool TryDispensingInStorage(out Item item, IStorage storage);
 }
