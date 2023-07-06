@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class WalletDataWrapper
 {
-	public Dictionary<CurrencyType, int> Currencies { get; set; }
+	public Dictionary<CurrencyType, uint> Currencies { get; set; }
 
-	public WalletDataWrapper(Dictionary<CurrencyType, int> currencies) => Currencies = currencies;
+	public WalletDataWrapper(Dictionary<CurrencyType, uint> currencies) => Currencies = currencies;
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuyableNode : ScriptableObject
 {
 	[Header("Cost")]
-	[SerializeField] private int _cost;
+	[SerializeField] private uint _cost;
 	[SerializeField] private CurrencyType _costType;
 
 	[Header("Spawn values")]
@@ -16,7 +16,7 @@ public class BuyableNode : ScriptableObject
 	[Space(15)]
 	[SerializeField] private List<BuyableNode> _nextBuyableNodes;
 
-	public int Cost { get => _cost; }
+	public uint Cost { get => _cost; }
 	public CurrencyType CostType { get => _costType; }
 
 	public Vector3 SpawnPoint { get => _spawnPoint; }

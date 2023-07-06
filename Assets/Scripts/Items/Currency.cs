@@ -5,8 +5,8 @@ public class Currency : Item
 {
 	[SerializeField] private CurrencyType _currencyType;
 
-	public KeyValuePair<CurrencyType, int> GetTypeValue()
+	public KeyValuePair<CurrencyType, uint> GetTypeValue()
 	{
-		return new KeyValuePair<CurrencyType, int>(_currencyType, 1);
+		return new KeyValuePair<CurrencyType, uint>(_currencyType, 1);
 	}
 }

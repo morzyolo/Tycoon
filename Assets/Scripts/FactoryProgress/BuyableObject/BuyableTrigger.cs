@@ -26,5 +26,5 @@ public class BuyableTrigger : MonoBehaviour, IBuyable
 		ObjectBought?.Invoke(this, _node);
 	}
 
-	public KeyValuePair<CurrencyType, int> GetCost() => new(_node.CostType, _node.Cost);
+	public KeyValuePair<CurrencyType, uint> GetCost() => new(_node.CostType, _node.Cost);
 }

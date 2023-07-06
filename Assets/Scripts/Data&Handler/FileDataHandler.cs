@@ -16,7 +16,7 @@ public class FileDataHandler
 			Directory.CreateDirectory(_dataPath + Path.AltDirectorySeparatorChar + "Data");
 	}
 
-	public void SaveWallet(Dictionary<CurrencyType, int> currencies) =>
+	public void SaveWallet(Dictionary<CurrencyType, uint> currencies) =>
 		SaveJsonData(_walletDataPath,
 			JsonConvert.SerializeObject(new WalletDataWrapper(currencies), Formatting.Indented));
 
@@ -27,7 +27,7 @@ public class FileDataHandler
 
 		return walletWrapper != null ?
 			new CurrencyWallet(walletWrapper.Currencies) :
-			new CurrencyWallet(new Dictionary<CurrencyType, int>() { { CurrencyType.Coin, 0 } });
+			new CurrencyWallet(new Dictionary<CurrencyType, uint>() { { CurrencyType.Coin, 0 } });
 	}
 
 	public void SaveBuyableNodes(List<BuyableNode> nodes) =>
