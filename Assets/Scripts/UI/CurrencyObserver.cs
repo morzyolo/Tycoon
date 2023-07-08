@@ -6,22 +6,17 @@ using UnityEngine.UI;
 public class CurrencyObserver : MonoBehaviour
 {
 	[SerializeField] private CurrencyElement _currencyElementPrefab;
-	[SerializeField] private List<CurrencyData> _currenciesData;
 
+	private List<CurrencyData> _currenciesData;
 	private CurrencyWallet _currencyWallet;
-
 	private Dictionary<CurrencyType, CurrencyElement> _currencyElements;
 
-	private void Awake()
-	{
-		_currencyElements = new Dictionary<CurrencyType, CurrencyElement>();
-	}
-
-	public void Initialize(CurrencyWallet currencyWallet)
+	public void Initialize(CurrencyWallet currencyWallet, List<CurrencyData> currenciesData)
 	{
 		_currencyWallet = currencyWallet;
-
+		_currenciesData = currenciesData;
 		_currencyWallet.CurrencyChanged += ChangeCurrencyElement;
+		_currencyElements = new Dictionary<CurrencyType, CurrencyElement>();
 	}
 
 	private void ChangeCurrencyElement(CurrencyType type, uint value)
@@ -34,9 +29,8 @@ public class CurrencyObserver : MonoBehaviour
 
 	private void CreateCurrencyElement(CurrencyType type, uint value)
 	{
-		var element = Instantiate(_currencyElementPrefab);
+		var element = Instantiate(_currencyElementPrefab, transform);
 		element.Initialize(FindCurrencyUISprite(type), value);
-		element.transform.SetParent(transform);
 		element.transform.SetSiblingIndex((int)type);
 		_currencyElements.Add(type, element);
 	}
@@ -46,7 +40,8 @@ public class CurrencyObserver : MonoBehaviour
 		foreach (var data in _currenciesData)
 			if (data.Type == type)
 				return data.UISprite;
-		return null;
+
+		throw new System.Exception($"Required sprite type \"{type}\" not found");
 	}
 
 	private void OnDisable()
