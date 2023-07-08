@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemStorage: {fileID: 0}
+  _sandPrefab: {fileID: 7254925692540780425, guid: 53b907949d8ee134e9276a2c3c0b302f, type: 3}
