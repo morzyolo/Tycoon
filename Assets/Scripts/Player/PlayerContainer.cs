@@ -33,4 +33,10 @@ public class PlayerContainer : MonoBehaviour, IStorage, IDispenser
 		if (item is CarriableItem cariable)
 			_tray.PlaceItem(cariable);
 	}
+
+	public void PlaceItemPoint(Transform point)
+	{
+		point.parent = transform;
+		point.localPosition = Vector3.zero;
+	}
 }

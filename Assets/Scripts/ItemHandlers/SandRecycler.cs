@@ -26,11 +26,28 @@ public class SandRecycler : MonoBehaviour, IStorage, IDispenser
 		_progressImage.transform.localRotation = Camera.main.transform.localRotation;
 	}
 
+	public bool TryStore(Item item)
+	{
+		if (item is Sand sand)
+		{
+			_sandForRecycling.Enqueue(sand);
+			return true;
+		}
+		else
+			return false;
+	}
+
 	public void PlaceItem(Item item)
 	{
 		item.transform.parent = transform;
 		item.transform.localRotation = Quaternion.identity;
-		item.transform.localPosition = _sandForRecycling.Count * 0.1f * Vector3.up;
+		TryStartRecycle();
+	}
+
+	public void PlaceItemPoint(Transform point)
+	{
+		point.parent = transform;
+		point.localPosition = GetFreeItemPosition();
 	}
 
 	public bool TryDispensingInStorage(out Item item, IStorage storage)
@@ -47,18 +64,6 @@ public class SandRecycler : MonoBehaviour, IStorage, IDispenser
 
 		item = null;
 		return false;
-	}
-
-	public bool TryStore(Item item)
-	{
-		if (item is Sand sand)
-		{
-			_sandForRecycling.Enqueue(sand);
-			TryStartRecycle();
-			return true;
-		}
-		else
-			return false;
 	}
 
 	private void TryStartRecycle()
@@ -89,5 +94,10 @@ public class SandRecycler : MonoBehaviour, IStorage, IDispenser
 		}
 
 		_recycleCoroutine = null;
+	}
+
+	private Vector3 GetFreeItemPosition()
+	{
+		return _sandForRecycling.Count * 0.1f * Vector3.up;
 	}
 }
