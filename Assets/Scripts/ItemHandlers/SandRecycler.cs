@@ -37,10 +37,11 @@ public class SandRecycler : MonoBehaviour, IStorage, IDispenser
 			return false;
 	}
 
-	public void PlaceItem(Item item)
+	public void PlaceItem(Item item, Transform point)
 	{
 		item.transform.parent = transform;
 		item.transform.localRotation = Quaternion.identity;
+		item.transform.localPosition = point.localPosition;
 		TryStartRecycle();
 	}
 

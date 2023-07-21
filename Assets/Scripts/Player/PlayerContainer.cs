@@ -28,7 +28,7 @@ public class PlayerContainer : MonoBehaviour, IStorage, IDispenser
 	public bool TryDispensingInStorage(out Item item, IStorage storage)
 		=> _tray.TryDispensingInStorage(out item, storage);
 
-	public void PlaceItem(Item item)
+	public void PlaceItem(Item item, Transform point)
 	{
 		if (item is CarriableItem cariable)
 			_tray.PlaceItem(cariable);

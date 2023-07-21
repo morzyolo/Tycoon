@@ -40,8 +40,7 @@ public class InteractionMediator
 			item.transform.position = GetCurvePoint(startPoint, endPoint.position, controlPoint, t);
 		}
 
-		to.PlaceItem(item);
-		item.transform.localPosition = endPoint.localPosition;
+		to.PlaceItem(item, endPoint);
 		endPoint.parent = null;
 	}
 
