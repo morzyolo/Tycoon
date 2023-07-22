@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43670732, g: 0.4843071, b: 0.5645581, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374887, g: 0.48531097, b: 0.5655861, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,50 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &497908251
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 497908252}
-  - component: {fileID: 497908253}
-  m_Layer: 0
-  m_Name: Updater
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &497908252
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497908251}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &497908253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497908251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e24f936d324d649a70732e3da94109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &599082781
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &599082783
 MonoBehaviour:
@@ -266,7 +222,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7fc42c7c8c7b9f34cb95a40df68ff068, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,7 +265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -397,14 +353,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.7180169, y: 0.012145383, z: -0.012533062, w: 0.69580686}
+  m_LocalRotation: {x: 0.64268965, y: 0.013369352, z: -0.011218217, w: 0.7659278}
   m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 91.8, y: 2, z: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 80, y: 2, z: 0}
 --- !u!1 &749325328
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +455,7 @@ RectTransform:
   m_Children:
   - {fileID: 1396472499}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -552,7 +508,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &812503922
 MonoBehaviour:
@@ -592,7 +548,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 195110318447677345, guid: 845ba52bb67affa4fafa470044534706, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 195110318447677345, guid: 845ba52bb67affa4fafa470044534706, type: 3}
       propertyPath: m_LocalPosition.x
@@ -723,7 +679,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -750,8 +706,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1021890960}
   - component: {fileID: 1021890961}
+  - component: {fileID: 1021890962}
   m_Layer: 0
-  m_Name: Bootstrap
+  m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -798,7 +755,19 @@ MonoBehaviour:
   _factoryProgress: {fileID: 599082783}
   _camera: {fileID: 963194229}
   _input: {fileID: 1994862300}
-  _updater: {fileID: 497908253}
+  _updater: {fileID: 1021890962}
+--- !u!114 &1021890962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021890959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e24f936d324d649a70732e3da94109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1248765404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -808,7 +777,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1061385145466518072, guid: adf0b32e79bf8984a9477d65cf32a2a6, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1061385145466518072, guid: adf0b32e79bf8984a9477d65cf32a2a6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -974,7 +943,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1994862300
 MonoBehaviour:
@@ -998,7 +967,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5738962055019011108, guid: 21c52e4a26d3bae40a89685858e8ca5b, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5738962055019011108, guid: 21c52e4a26d3bae40a89685858e8ca5b, type: 3}
       propertyPath: m_LocalPosition.x
